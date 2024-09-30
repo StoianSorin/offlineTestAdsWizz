@@ -9,12 +9,18 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
 
-        //FirstTest firstTest = new FirstTest();
-        //firstTest.returnTheMostDownloadedPodcast();
+        FirstTest firstTest = new FirstTest();
+        firstTest.returnTheMostDownloadedPodcast();
         System.out.println(" ");
 
         SecondTest secondTest = new SecondTest();
         secondTest.returnTheMostUsedDevice();
         System.out.println(" ");
+
+        ThirdTest thirdTest = new ThirdTest();
+        thirdTest.returnNoOfOpportunitiesToInsertAds();
+        System.out.println(" ");
+
+
     }
 }
