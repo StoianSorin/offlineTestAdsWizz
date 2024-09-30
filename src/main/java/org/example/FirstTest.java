@@ -22,16 +22,21 @@ public class FirstTest {
         // typecasting obj to JSONObject
         JSONArray podcastEntries = (JSONArray) jsonContent;
 
+        // declaring a podcastNames list
         List<String> podcastNames = new ArrayList<>();
-        for(Object podcastEntry : podcastEntries){
+        for (Object podcastEntry : podcastEntries) {
             JSONObject element = (JSONObject) podcastEntry;
-            Map<String, String> downloadIdentifier = (Map<String, String>) element.get("downloadIdentifier");
-            // iterating podcastNames map
-            for(Map.Entry<String, String> downloadIdentifierObject : downloadIdentifier.entrySet()) {
-                if(downloadIdentifierObject.getKey().equals("showId")) {
-                    podcastNames.add(downloadIdentifierObject.getValue());
+            String city = element.get("city").toString();
+            if (city.equals("san francisco")) {
+                Map<String, String> downloadIdentifier = (Map<String, String>) element.get("downloadIdentifier");
+                // iterating podcastNames map
+                for (Map.Entry<String, String> downloadIdentifierObject : downloadIdentifier.entrySet()) {
+                    if (downloadIdentifierObject.getKey().equals("showId")) {
+                        podcastNames.add(downloadIdentifierObject.getValue());
+                    }
                 }
             }
+
         }
 
         //print the result
@@ -39,7 +44,7 @@ public class FirstTest {
         String podcastName = functions.returnNameOfTheMostVisibleElement(podcastNames);
         int noOfDownloads = functions.returnNumberOfAppearancesForTheMostVisibleElement(podcastNames);
         assertEquals("Who Trolled Amber", podcastName);
-        assertEquals(40, noOfDownloads);
+        assertEquals(24, noOfDownloads);
         System.out.println("Most popular show is: " + podcastName);
         System.out.println("Number of downloads is: " + noOfDownloads);
     }
