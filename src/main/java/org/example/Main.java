@@ -21,6 +21,8 @@ public class Main {
         thirdTest.returnNoOfOpportunitiesToInsertAds();
         System.out.println(" ");
 
-
+        FourthTest fourthTest = new FourthTest();
+        fourthTest.returnWeeklyShows();
+        System.out.println(" ");
     }
 }
